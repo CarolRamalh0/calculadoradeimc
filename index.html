@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indice de Massa Corporal</title>
+</head>
+
+<body>
+    <h1>IMC - Índice de Massa Corporal</h1>
+
+    <form action="">
+        <label for="altura"> Altura: </label>
+        <input type="number" name="" id="altura">
+        <br>
+        <label for="peso">Peso (Kg):</label>
+        <input type="number" name="" id="peso" maxlength="5">
+        <br>
+
+        <button onclick="calcularImc()">Calcular IMC</button>
+
+        <p>Seu índice de Massa Corporal é: <strong><span id="resultado"></span></strong></p>
+
+        <div id="mensagem"></div>
+
+    </form>
+
+    <footer>
+        <p>Desenvolvido por Carol Ramalho | Desenvvolvimento Web | 14/03</p>
+    </footer>
+
+    <script>
+        function calcularImc() {
+            const peso = document.getElementById("peso").value;
+            const altura = document.getElementById("altura").value;
+            const imc = peso / (altura ** 2);
+            document.getElementById("resultado").textContent = imc.toFixed(2);
+
+
+
+            if (imc < 18.5) {
+                document.getElementById("mensagem").textContent = "Você está abaixo do peso."
+            }
+            else if (imc < 24.9) {
+                document.getElementById("mensagem").textContent = "Você está no peso ideal."
+            }
+            else if (imc < 29.9) {
+                document.getElementById("mensagem").textContent = "Você está levemente acima do peso."
+            }
+            else if (imc < 34.9) {
+                document.getElementById("mensagem").textContent = "Você está em obesidade grau I."
+            }
+            else if (imc < 39.9) {
+                document.getElementById("mensagem").textContent = "Você está em obesidade grau II."
+            }
+            else if (imc > 40.0) {
+                document.getElementById("mensagem").textContent = "Você está em obesidade grau III."
+            };
+        }
+
+
+    </script>
+
+</body>
+
+</html>
